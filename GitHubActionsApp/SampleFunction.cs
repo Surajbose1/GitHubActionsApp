@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GitHubActionsApp
 {
-    public class SampleFuntion
+    public class SampleFunction
     {
-        [FunctionName(nameof(SampleFuntion))]
+        [FunctionName(nameof(SampleFunction))]
         public async Task<IActionResult> RunAsync(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
