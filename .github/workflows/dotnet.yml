@@ -47,22 +47,4 @@ jobs:
       with:
         name: build_artifacts
         path: ${{ env.BUILD_OUTPUT_PATH }}
-        if-no-files-found: error
-        
-#     - name: Login to Azure
-#       uses: azure/login@v1
-#       with:
-#         creds: ${{ secrets.AZURE_CREDENTIALS }}
-#         enable-AzPSSession: true
-        
-#     - name: 'Fetching Azure Functions Publishing Profile'
-#       id: fncapp
-#       uses: azure/powershell@v1
-#       with:
-#         inlineScript: |
-#             $profile = ""
-#             $profile = Get-AzWebAppPublishingProfile -ResourceGroupName github-actions  -Name fnsb20221012
-#             $profile = $profile.Replace("`r", "").Replace("`n", "")
-#             Write-Output "::set-output name=pubprofile::$profile"
-#             Remove-Variable profile
-#         azPSVersion: "latest"        
+        if-no-files-found: error   
