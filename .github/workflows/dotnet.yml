@@ -23,3 +23,19 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: 'Fetching Azure Functions Publishing Profile'
+      id: fncapp
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+            $profile = ""
+            $profile = Get-AzWebAppPublishingProfile -ResourceGroupName github-actions  -Name fnsb20221012
+            $profile = $profile.Replace("`r", "").Replace("`n", "")
+            Write-Output "::set-output name=pubprofile::$profile"
+            Remove-Variable profile
+        azPSVersion: "latest"        
