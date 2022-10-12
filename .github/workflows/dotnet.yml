@@ -63,7 +63,7 @@ jobs:
         with:
           inlineScript: |
               $profile = ""
-              $profile = Get-AzWebAppPublishingProfile -ResourceGroupName github-actions  -Name fnsb20221012
+              $profile = Get-AzWebAppSlotPublishingProfile -ResourceGroupName github-actions  -Name fnsb20221012 -Slot prelive
               $profile = $profile.Replace("`r", "").Replace("`n", "")
               Write-Output "::set-output name=pubprofile::$profile"
               Remove-Variable profile
@@ -81,4 +81,5 @@ jobs:
            app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
            package: ${{ env.BUILD_OUTPUT_PATH }}/${{ env.BUILD_PACKAGE_NAME }}
            publish-profile: ${{ steps.fncapp.outputs.pubprofile }} 
+           slot-name: prelive
   
