@@ -45,4 +45,11 @@ jobs:
       with:
         name: build_artifacts
         path: ${{ env.BUILD_OUTPUT_PATH }}
-        if-no-files-found: error   
+        if-no-files-found: error
+        
+    - name: 'Package Azure Function release build'
+      uses: actions/upload-artifact@v2
+      with:
+        name: build_artifacts
+        path: ${{ env.BUILD_OUTPUT_PATH }}
+        if-no-files-found: error        
