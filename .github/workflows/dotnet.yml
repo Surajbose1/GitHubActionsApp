@@ -7,9 +7,8 @@ on:
     branches: [ "master" ]
     
 env:
-  DOTNET_VERSION: '3.1.x'
   AZURE_FUNCTIONAPP_NAME: 'greetingservice'
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '${{ github.workspace }}/src/GreetingDemo.Function'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '${{ github.workspace }}/src/GitHubActionsApp'
   BUILD_OUTPUT_PATH: '${{ github.workspace }}/build-artifacts'
   BUILD_PACKAGE_NAME: 'az-func.zip'    
 
