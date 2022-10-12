@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 
 namespace GitHubActionsApp
@@ -17,7 +18,7 @@ namespace GitHubActionsApp
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = string.IsNullOrEmpty(req.Query["name"])  ? "World" : req.Query["name"];
-            string responseMessage = $"Hello {name}";
+            string responseMessage = $"Hello {name}. Time(UTC): {DateTime.UtcNow}";
 
             return new OkObjectResult(responseMessage);
         }
