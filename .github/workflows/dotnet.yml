@@ -95,6 +95,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
 
-    - name: Swap slots
-      run: az webapp deployment slot swap -s prelive -n fnsb20221012 -g github-actions
+      - name: Swap slots
+        run: az webapp deployment slot swap -s prelive -n fnsb20221012 -g github-actions
 
